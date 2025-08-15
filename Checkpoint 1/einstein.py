@@ -1,0 +1,1 @@
+print(int(input("You're trying to calculate the energy right? Well give me a mass and I'll give you the energy.\n"))*300000000**2,"Joules")
