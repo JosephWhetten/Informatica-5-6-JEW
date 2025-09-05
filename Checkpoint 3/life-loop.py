@@ -16,27 +16,28 @@ def main():
         sock = input(f"What type of sock do you want? {majiger} ")
         rem -= 1
         if sock == sg:
-            majiger = majiger - sg
+            majiger.remove(sg)
         if sock == sb:
-            majiger = [sg, sbl, sy, sp, sgo, spi]
+            majiger.remove(sb)
         if sock == sbl:
-            majiger = [sg, sb, sy, sp, sgo, spi]
+            majiger.remove(sbl)
         if sock == sy:
-            majiger = [sg, sb, sbl, sp, sgo, spi]
+            majiger.remove(sy)
         if sock == sp:
-            majiger = [sg, sb, sbl, sy, sgo, spi]
+            majiger.remove(sp)
         if sock == sgo:
-            majiger = [sg, sb, sbl, sy, sp, spi]
+            majiger.remove(sgo)
         if sock == spi:
-            majiger = [sg, sb, sbl, sy, sp, sgo]
+            majiger.remove(spi)
+    print("You ran out of socks! Time to do your laundry...")
 
-    day = 7
-    while day > 0:
-        time.sleep(2)
-        socks = input("Good morning! What socks do you want to use? = ")
-        print(f"You selected the {socks} socks, have a good day!\n")
-        day -= 1
+    # day = 7
+    # while day > 0:
+    #     time.sleep(2)
+    #     socks = input("Good morning! What socks do you want to use? = ")
+    #     print(f"You selected the {socks} socks, have a good day!\n")
+    #     day -= 1
         
-    print("You ran out of socks, time to wash the laundry!")
+    # print("You ran out of socks, time to wash the laundry!")
 
 main()
