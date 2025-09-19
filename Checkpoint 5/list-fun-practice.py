@@ -24,4 +24,3 @@ def new_list(new):
         num = int(input("Enter a new integer to add = "))
 
 main()
-
