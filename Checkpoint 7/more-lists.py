@@ -23,12 +23,12 @@ matrix = [[1,2,3],[4,5,6],[7,8,9]]
 # Print rows
 for row in matrix:
     print(row)
-for column in matrix:
-    print(column[0],end=" ")
-print("")
-for column in matrix:
-    print(column[1],end=" ")
-print("")
-for column in matrix:
-    print(column[2],end=" ")
-print("")
+# Print Columns
+
+i = 0
+while i < 3:
+    column = []
+    for element in matrix:
+        column.append(element[i])
+    print(column)
+    i += 1
