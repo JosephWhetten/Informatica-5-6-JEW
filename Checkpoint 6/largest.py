@@ -4,10 +4,10 @@ def main():
     if choice == 1:
         numbers = input("Enter the numbers = ")
         write_numbers(numbers, "largest.txt")
-        find_largest(numbers)
+        find_largest(numbers.replace(",","").split())
     if choice == 2:
         filename = input("Enter the file name = ")
-        read_numbers()
+        read_numbers(filename)
         find_largest()
 
 def write_numbers(num, name):
@@ -19,7 +19,18 @@ def write_numbers(num, name):
     #     file.write(list(num.replace(",", "").split()))
     #print(list(num.replace(",","").split()))
 
-def find_largest(num):
-    print(max(list(num.replace(",", "").split())))
+def find_largest(num: list):
+    new_num = []
+    for i in num:
+        new_num.append(int(i))
+    print(max(new_num))
+
+def read_numbers(file_name):
+    with open(file_name, "r") as file:
+        lines = file.readlines()
+    numbers = []
+    for line in lines:
+        numbers.append(int(line.replace("\n","")))
+    print(numbers)
 
 main()
