@@ -1,1 +1,0 @@
-# Informatica-5-6-JEW
