@@ -15,21 +15,22 @@ while i < 13:
     i += 1
 print(user_letters)
 
-word = input("Enter a word with these letters: ")
-o = 0
-while o < len(word):
-    if word.upper()[o] in user_letters:
-        print(word[o])
-        o += 1
-    else:
-        print("wrong")
-        o += 1
+word = input("Enter a word with these letters: ").upper()
+
+for check_letter in word:
+    if check_letter not in user_letters:
+        print(f"The letter {check_letter} is not available")
 
 with open("scrabble-words.txt" ,"r") as file:
     lines = file.readlines()
 dictwords = []
 for line in lines:
     dictwords.append(line.replace("\n",""))
-if word in dictwords:
-    print("It's ok")
+if word.lower() in dictwords:
+    print("Valid")
 else: print("Not ok")
+
+total = 0
+for value in word:
+    total += alphabet[value]
+print(total)
