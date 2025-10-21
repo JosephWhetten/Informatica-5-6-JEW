@@ -11,7 +11,7 @@ def main():
     }
     user_letters = []
     i = 0
-    while i < 13:                                                           # Picks 13 random letters from the alphabet
+    while i < 13:                                                       # Picks 13 random letters from the alphabet
         user_letters.append(list(alphabet.keys())[random.randint(0,25)])
         i += 1
     print(user_letters)
@@ -19,13 +19,25 @@ def main():
     word = input("Enter a word with these letters: ").upper()
     score = 0
     while True:
-        
-        if word != "":                                              # Checks if the input is ENTER
-            check_scrabble(word)
+        if word != "":                                                  # Checks if the input is ENTER
+            while True:                                                        
+                with open("scrabble-words.txt" ,"r") as file:           # Checks if the word is in the dictionary
+                    lines = file.readlines()                            # Opens the word file of the words in the dictionary of scrabble
+                dictwords = []
+                for line in lines:
+                    dictwords.append(line.replace("\n",""))
+                if word.lower() in dictwords:                           # Reads if the word is in the dictionary
+                    print("Valid")
+                    break
+                else: 
+                    word = input("Not valid, try again: ").upper()
+            
             for letter in word:                                     # Removes the letters the user entered
                 user_letters.pop(user_letters.index(letter))        
+            
             for value in word:                                      # Adds the value of every letter
                 score += alphabet[value]
+            
             print(f"Your total score is: {score}")
             print(f"Remaining letters: \n{user_letters}")
             word = input("Enter a word with the remaining letters, press ENTER to stop: ").upper()
@@ -33,15 +45,6 @@ def main():
     print(f"Thank you for playing! Your final score is {score}")
         
     
-def check_scrabble(word):                               # Checks if the word is in the dictionary
-    with open("scrabble-words.txt" ,"r") as file:       # Opens the word file of the words in the dictionary of scrabble
-        lines = file.readlines()
-    dictwords = []
-    for line in lines:
-        dictwords.append(line.replace("\n",""))
-    if word.lower() in dictwords:                       # Reads if the word is in the dictionary
-        print("Valid")
-    else: 
-        word = input("Not valid, try again: ")
+
 
 main()
