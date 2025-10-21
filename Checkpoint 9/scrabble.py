@@ -19,18 +19,21 @@ def main():
     word = input("Enter a word with these letters: ").upper()
     score = 0
     while True:
-        if word != "":                                                  # Checks if the input is ENTER
-            while True:                                                        
-                with open("scrabble-words.txt" ,"r") as file:           # Checks if the word is in the dictionary
-                    lines = file.readlines()                            # Opens the word file of the words in the dictionary of scrabble
-                dictwords = []
-                for line in lines:
-                    dictwords.append(line.replace("\n",""))
-                if word.lower() in dictwords:                           # Reads if the word is in the dictionary
-                    print("Valid")
+        while True:                                                        
+            with open("scrabble-words.txt" ,"r") as file:           # Checks if the word is in the dictionary
+                lines = file.readlines()                            # Opens the word file of the words in the dictionary of scrabble
+            dictwords = []
+            for line in lines:
+                dictwords.append(line.replace("\n",""))
+            if word.lower() in dictwords:                           # Reads if the word is in the dictionary
+                print("Valid")
+                break
+            else: 
+                word = input("Not valid, try again: ").upper()
+                if word == "":
                     break
-                else: 
-                    word = input("Not valid, try again: ").upper()
+
+        if word != "":                                                  # Checks if the input is ENTER
             
             for letter in word:                                     # Removes the letters the user entered
                 user_letters.pop(user_letters.index(letter))        
@@ -41,6 +44,8 @@ def main():
             print(f"Your total score is: {score}")
             print(f"Remaining letters: \n{user_letters}")
             word = input("Enter a word with the remaining letters, press ENTER to stop: ").upper()
+            if word == "":
+                break
         else: break
     print(f"Thank you for playing! Your final score is {score}")
         
