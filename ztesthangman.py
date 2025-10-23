@@ -50,28 +50,30 @@
 def main():
 
     word = input("What is the word going to be? = ")
-    print(f"{len(word)}")
+
     hidden_word = "_"
     blank = list(hidden_word*len(word))
     print(blank)
-    listword = []
+
+    realword = []
     for element in word:
-        listword.append(element)
-    print(listword)
+        realword.append(element)
+    print(realword)
+    
     i = 0
     while i < len(word):
         guess = input("Type a letter: ")
-        if guess in listword:
+        if guess in realword:
             
-            c = 0
-            if c < listword.count(guess):
-                blank.pop(listword.index(guess))
-                blank.insert(listword.index(guess),guess)
-                listword.insert(listword.index(guess),"_")
-                listword.pop(listword.index(guess))
+            for letter in realword.count(guess):
+                blank.pop(realword.index(guess))
+                blank.insert(realword.index(guess),guess)
+                realword.insert(realword.index(guess),"_")
+                realword.pop(realword.index(guess))
+                i += 1
             print(blank)
-            print(listword)
-            i += 1
+            print(realword)
+            
             
 
     # for letter in word:
