@@ -3,15 +3,15 @@ def main():
     print("You typed in:", number)
 
 def read_input(text, x, y): # Insert missing parameters
-    num = input(f"{text}")
     while True:
         try:
-            if int(num) >= x and int(num) <= y:
+            num = input(f"{text}")
+            if x <= int(num) <= y:
                 return num
             else:
-                num = input("Please type in another number: ")
+                print(f"Please type a number between {x} and {y}")
         except ValueError:
-            num = input(f"This input is invalid\n{text}")
+            print(f"This input is invalid")
 
     # Complete the program here
 
