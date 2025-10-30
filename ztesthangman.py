@@ -65,8 +65,7 @@ def main():
         guess = input("Type a letter: ")
         if guess in realword:
             
-            i = 0
-            while i < realword.count(guess):
+            for count in range(0, realword.count(guess)):
                 blank.pop(realword.index(guess))
                 blank.insert(realword.index(guess),guess)
                 realword.insert(realword.index(guess),"_")
