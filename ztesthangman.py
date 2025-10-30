@@ -65,12 +65,13 @@ def main():
         guess = input("Type a letter: ")
         if guess in realword:
             
-            print(realword.count(guess))
-            blank.pop(realword.index(guess))
-            blank.insert(realword.index(guess),guess)
-            realword.insert(realword.index(guess),"_")
-            realword.pop(realword.index(guess))
-            i += 1
+            i = 0
+            while i < realword.count(guess):
+                blank.pop(realword.index(guess))
+                blank.insert(realword.index(guess),guess)
+                realword.insert(realword.index(guess),"_")
+                realword.pop(realword.index(guess))
+                i += 1
             print(blank)
             print(realword)
             
