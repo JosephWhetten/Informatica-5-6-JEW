@@ -26,7 +26,7 @@ import cowsay
 
 # To see if there's no arguments
 try:
-    cowsay.cow("Hello, my name is", sys.argv[1])
+    cowsay.cow("Hello, my name is" + sys.argv[1])
 except IndexError:
     print("Too few arguents")
     sys.exit()
