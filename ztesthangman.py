@@ -52,7 +52,10 @@ import getpass
 
 def main():
 
+    alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
     word = getpass.getpass("What is the word going to be? = ")
+    print(len(alphabet))
 
     hidden_word = "_"
     correct_guess = list(hidden_word*len(word))
@@ -69,14 +72,11 @@ def main():
     i = 0
     while i < len(word):
         guess = input("Type a letter: ")
-        # Tests for integers
-        if guess.isdigit():
-            print("You must enter a letter")
-        # Tests if for than one letter
-        elif len(guess) > 1:
-            print("Only enter one letter")
-            print(type(guess))
-        # Test if you already have it
+        
+        # Test if it's not in the alphabet
+        if guess not in alphabet:
+            print("Invalid Input")
+            
         elif guess in correct_guess or guess in wrong_guess:
             print("You already used this letter")
         # Test if you already guessed it
