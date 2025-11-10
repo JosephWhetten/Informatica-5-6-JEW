@@ -64,6 +64,12 @@ def main():
 
     hidden_word = "_"
     correct_guess = list(hidden_word*len(word))
+    correct_guess = []
+    for letter in word:
+        if letter == " ":
+            correct_guess.append(" ")
+        else: correct_guess.append(hidden_word)
+    print(correct_guess)
 
     testword = []
     for element in word:
@@ -88,9 +94,11 @@ def main():
             print(hangman6,end="\n\t")
             print("You died!")
             break
+
         for letter in wrong_guess:
             print(letter,end =" ")
         print("")
+        
         for letter in correct_guess:
             print(letter,end=" ")
 
