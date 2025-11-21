@@ -13,11 +13,12 @@ headers = {
 response = requests.get(url, headers=headers, params=querystring)
 
 # print(response.json())
-# print(response.json()["data"]["products"][0]["product_price"])
+# for price in response.json()["data"]["products"]:
+#     print(price["produce_price"])
 
 prices = []
 for price in response.json()["data"]["products"]:
-    prices.append(float(price["product_price"].replace("$","")))
+    prices.append(float(price["product_price"].replace("$","").replace(",","")))
     
 print(f"The max price is: ${max(prices)}")
 print(f"The minimum price is: ${min(prices)}")
